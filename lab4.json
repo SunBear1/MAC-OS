@@ -1,0 +1,40 @@
+
+{
+    "userName": "Chovy",
+    "name": "Kim",
+    "Followers": 159,
+    "Following": 182,
+    "tweet": {
+            "numberOfViews": 987982,
+            "durationOfVideo": 0.87,
+            "date": "12.04.1999",
+            "stats": {
+                "numberOfLikes": 24121,
+                "numberOfReTweets":123456,
+                "numberOfComments": 99
+            }
+    } 
+}
+
+
+
+
+users.append(User(userName: "f0rce",name: "Piotr",Followers: 345, Following: 678, tweet: Video(numberOfViews:88821,durationOfVideo:1.23,date: "05.06.2019",stats: Reaction(numberOfLikes: 42, numberOfReTweets: 11, numberOfComments: 86))))
+
+
+
+
+struct User{
+    var userName:String
+    var name:String
+    var Followers: Int
+    var Following: Int
+    var tweet: Tweet
+    init(userName: String,name: String,Followers: Int,Following: Int, tweet:Tweet){
+        self.userName = userName
+        self.name = name
+        self.Followers = Followers
+        self.Following = Following
+        self.tweet = tweet
+    }
+}

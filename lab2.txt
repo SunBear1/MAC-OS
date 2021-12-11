@@ -1,0 +1,164 @@
+import Foundation
+func minValue (_ x:Int, _ y:Int) -> Int{
+    if(x < y)
+    {
+        return x;
+    }
+    else
+    {
+        return y;
+    }
+}
+func lastdigit(_ a:Int) -> Int{
+    return a%10
+}
+func divides (_ a:Int, _ b:Int) -> Bool{
+    if(a%b == 0)
+    {
+        return true
+    }  
+    else
+    {
+        return false
+    }
+}
+func countDivisors(_ a:Int) -> Int{
+    var c = 0
+    for i in 1...a
+    {
+        if(divides(a,i))
+        {
+            c = c + 1
+        }
+    }
+    return c
+}
+func isPrime(_ a:Int) -> Bool{
+    if(countDivisors(a) == 2)
+    {
+        return true
+    }  
+    else
+    {
+        return false
+    }
+}
+
+func smartBart(_ n:Int,_ write:()->()){
+  for i in 1...n
+  {
+   write()
+  }
+}
+
+var write: () -> () =  {
+    print("I will pass this course with best mark, because Swift is great!")
+}
+func minmax (_ x:Int, _ y:Int) -> (Int, Int)?{
+    var minmax_tuple = (0,0)
+    if(x < y)
+    {
+        minmax_tuple.1 = x
+        minmax_tuple.0 = y
+    }
+   else
+   {
+        minmax_tuple.1 = y
+        minmax_tuple.0 = x
+   }
+    return minmax_tuple
+}
+//1 ex.1
+print(minValue(5,8))
+//1 ex.2
+print(lastdigit(2137))
+//1 ex.3
+print(divides(7, 3))
+print(divides(8, 4))
+print(countDivisors(1))
+print(countDivisors(10))
+print(countDivisors(12))
+print(isPrime(3))
+print(isPrime(8))
+print(isPrime(13))
+//2 ex.1
+smartBart(5,write)
+//2 ex.2
+let numbers = [10, 16, 18, 30, 38, 40, 44, 50]
+let numers_mul_four = numbers.filter{$0 % 4 == 0}
+print(numers_mul_four)
+//2 ex.3
+let numbers_max = numbers.reduce(0){ max($0, $1) }
+print(numbers_max)
+//2 ex.4
+var strings = ["Gdansk", "University", "of", "Technology"]
+let text = strings.reduce(""){$0 == "" ? $1 : $0 + " " + $1 }
+print(text)
+//2 ex.5
+let numbers_2 = [1, 2 ,3 ,4, 5, 6]
+let odd_numbers = numbers_2.filter{$0 % 2 == 1}
+let squered = odd_numbers.map{$0*$0}
+let squered_print = squered.reduce(""){$0 == "" ? "\($0)\($1)" : "\($0) + \($1)" }
+let sum = squered.reduce(0,+)
+print("\(squered_print) -> \(sum)")
+//3 ex.1
+print(minmax(5,10))
+//3 ex.2
+var stringsArray = ["gdansk", "university", "gdansk", "university", "university", "of" , "technology", "technology", "gdansk", "gdansk"]
+var tupleArray = [(String, Int)]()
+for string in stringsArray
+{
+ var unikat = true
+  for i in tupleArray
+  {
+    if(i.0 == string)
+    {
+     unikat = false
+    }
+  }
+  if (unikat == true)
+  {
+    var c = 0
+    for j in stringsArray
+    {
+     if(j == string)
+      {
+       c = c + 1
+      }
+    }
+   tupleArray.append((string,c))
+  }
+}
+print (tupleArray)
+//4 ex.1
+enum Day: Int {
+    case Monday = 1
+    case Tuesday = 2
+    case Wednesday = 3
+    case Thursday = 4
+    case Friday = 5
+    case Saturday = 6
+    case Sunday = 7
+func DayDisplay() -> String{
+switch self {
+        case .Monday:
+            return "🐈"
+        case .Tuesday:
+            return "🐖"
+        case .Wednesday:
+            return "🐪"
+        case .Thursday:
+            return "🐓"
+        case .Friday:
+             return "🐿️"
+        case .Saturday:
+            return "🐻"
+        case .Sunday:
+            return "🦏"
+}
+}
+}
+let dzien = Day.Thursday
+print(dzien.DayDisplay())
+
+
